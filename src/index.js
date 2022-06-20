@@ -7,7 +7,12 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App name={"MERNT"} address="testing" />
+    <App
+      name={"MERNT"}
+      address="testing"
+      location={{ latitude: 234.423, longitude: 80.3424234 }}
+      onSubmit={() => console.log("Submit")}
+    />
   </React.StrictMode>
 );
 
