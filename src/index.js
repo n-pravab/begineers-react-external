@@ -14,7 +14,6 @@ root.render(
       location={{ latitude: 234.423, longitude: 80.3424234 }}
       onSubmit={() => console.log("Submit")}
     />
-    <First />
   </React.StrictMode>
 );
 
