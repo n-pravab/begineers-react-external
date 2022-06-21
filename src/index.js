@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import First from "./components/firstComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       location={{ latitude: 234.423, longitude: 80.3424234 }}
       onSubmit={() => console.log("Submit")}
     />
+    <First />
   </React.StrictMode>
 );
 
