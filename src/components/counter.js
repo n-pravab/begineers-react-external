@@ -12,7 +12,7 @@ export const Counter = () => {
         size={count + 20}
         color={count >= 12 ? "red" : `${hovered ? "gold" : "green"}`}
         onClick={() => setCount(count >= 12 ? count : count + 1)}
-        onMouseOver={() => setHovered(true)}
+        onMouseOver={() => setHovered(!hovered)}
       />
       <h1 style={{ color: `${count >= 12 ? "red" : "pink"}` }}>{count}</h1>
       {/* string vitra operation halna pare literal usee garne   */}
