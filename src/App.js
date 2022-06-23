@@ -1,6 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import First from "./components/firstComponent";
+import First, { Second } from "./components/firstComponent";
+import Register from "./components/StudentsRegister";
+import { STUDENTS } from "./constants";
+import Counter from "./components/counter";
 
 function App(props) {
   console.log(props, "App props");
@@ -15,6 +18,14 @@ function App(props) {
         location={{ latitude: 232.3424, longitude: 454.45 }}
         isStudent={true}
       />
+      <Second />
+      <Register
+        batch={"075"}
+        faculty={"BCT"}
+        college={"KEC"}
+        students={STUDENTS}
+      />
+      <Counter />
     </div>
   );
 }
