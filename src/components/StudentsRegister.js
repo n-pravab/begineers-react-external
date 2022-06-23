@@ -17,7 +17,21 @@ const Register = ({ batch, faculty, college, students }) => {
           </li>
         ))}
       </ul>
-      <button onClick={() => setEntries([...entries])}>+Add</button>
+      <button
+        onClick={() =>
+          setEntries([
+            ...entries,
+            {
+              name: "John cena",
+              dob: "1999-8-23",
+              address: "Lalitpur",
+              id: entries.length + 1,
+            },
+          ])
+        }
+      >
+        +Add
+      </button>
       <button onClick={() => setEntries([])}>Clearall</button>
     </div>
   );
