@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { VscTrash } from "react-icons/vsc";
 
 const Register = ({ batch, faculty, college, students }) => {
   const [entries, setEntries] = useState(students);
@@ -33,24 +34,31 @@ const Register = ({ batch, faculty, college, students }) => {
   const handlePressEnterAtAddress = (e) => {
     console.log("press enter");
     if (e.code === "Enter") {
-      setEntries([
-        ...entries,
-        {
-          name: name,
-          dob: dob,
-          address: address,
-          id: entries.length + 1,
-        },
-      ]);
-      setName("");
-      setDob("");
-      setAddress("");
+      handleAddEntry();
       nameRef.current.focus();
     } else if (e.code === "ArrowRight") {
       nameRef.current.focus();
     } else if (e.code === "ArrowLeft") {
       dobRef.current.focus();
     }
+  };
+  const handleAddEntry = () => {
+    setEntries([
+      ...entries,
+      {
+        name: name,
+        dob: dob,
+        address: address,
+        id: entries.length + 1,
+      },
+    ]);
+    setName("");
+    setDob("");
+    setAddress("");
+    nameRef.current.focus();
+  };
+  const handleRemoveEntry = (id) => {
+    setEntries(entries.filter((entry) => entry.id !== id));
   };
   return (
     <div>
@@ -64,27 +72,16 @@ const Register = ({ batch, faculty, college, students }) => {
             <span>{s.name} </span>
             <span>{s.dob} </span>
             <span>{s.address}</span>
+            <VscTrash
+              color="red"
+              onClick={() => {
+                handleRemoveEntry(s.id);
+              }}
+            />
           </li>
         ))}
       </ul>
-      <button
-        onClick={() => {
-          setEntries([
-            ...entries,
-            {
-              name: name,
-              dob: dob,
-              address: address,
-              id: entries.length + 1,
-            },
-          ]);
-          setName("");
-          setDob("");
-          setAddress("");
-        }}
-      >
-        +Add
-      </button>
+      <button onClick={handleAddEntry}>+Add</button>
       <button onClick={() => setEntries([])}>Clearall</button>
       <input
         ref={nameRef}
